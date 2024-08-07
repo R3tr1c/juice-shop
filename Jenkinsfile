@@ -23,7 +23,7 @@ pipeline {
                 // Запускаем semgrep
                 script {
                     sh 'export PATH=$PATH:/var/lib/jenkins/.local/bin'
-                    sh "semgrep scan ."
+                    sh "/var/lib/jenkins/.local/lib/python3.11/site-packages/semgrep scan ."
                 }
             }
         }
