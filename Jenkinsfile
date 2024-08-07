@@ -1,9 +1,5 @@
 pipeline {
     agent any
-
-    environment {
-        PATH = "${HOME}/.local/bin:${PATH}"
-    }
     
     stages {
         stage('Checkout') {
@@ -26,6 +22,7 @@ pipeline {
             steps {
                 // Запускаем semgrep
                 script {
+                    sh 'export PATH=$PATH:/var/lib/jenkins/.local/bin'
                     sh "semgrep scan ."
                 }
             }
