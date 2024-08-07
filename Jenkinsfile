@@ -1,6 +1,10 @@
 pipeline {
     agent any
-  
+
+    environment {
+        SEMGREP_PATH = '/var/lib/jenkins/.local/bin/semgrep'
+    }
+    
     stages {
         stage('Checkout') {
             steps {
